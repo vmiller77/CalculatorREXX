@@ -60,23 +60,33 @@ arithmetic:
     then index = 0
   n1Index = index-1
   n2Index = index+1
-  if (datatype(array.n1Index) = "CHAR" | datatype(array.n2Index) = "CHAR") then
-        SAY "Invalid format, make sure there is a space between each character or number!"
-        if op = '*'
-          then result = array.n1Index*array.n2Index
-        if op = '/'
-          then result = array.n1Index/array.n2Index
-        if op = '+'
-          then result = array.n1Index+array.n2Index
-        if op = '-'
-          then result = array.n1Index-array.n2Index
-        array.n1Index = result
-        newStartIndex = n1Index+1
-        DO i = n2Index+1 to count
-          array.newStartIndex = array.i
-          newStartIndex = newStartIndex+1
-        END
-        count = count -2
+  if datatype(array.n1Index) \= "CHAR" & datatype(array.n2Index) \= "CHAR" then
+   do
+       if op = '*'
+         then result = array.n1Index*array.n2Index
+       if op = '/'
+         then result = array.n1Index/array.n2Index
+       if op = '+'
+         then result = array.n1Index+array.n2Index
+       if op = '-'
+         then result = array.n1Index-array.n2Index
+       array.n1Index = result
+       newStartIndex = n1Index+1
+       DO i = n2Index+1 to count
+         array.newStartIndex = array.i
+         newStartIndex = newStartIndex+1
+       END
+       count = count - 2
+   end
+   else
+   do i = 1 to 1
+   SAY "Bad format! RULES:"
+   SAY 'All calculations are done in an infix manner. For example, "3 - 5" not "+ 2 3" nor "7 5 -".'
+   SAY 'Enter in your arguments with a space in between. For example, "2 + 2" not "2+2"'
+   SAY 'You are able to add(+), subtract(-), multiply(*), and divide(/)!'
+   SAY 'Only use numbers and operators(+,-,/,*)'
+      count = 0
+   end
 return ""
 
 /* op index finder */
