@@ -22,9 +22,13 @@ For example: "3 + 5", not "3+5".
 You are able to add, subtract, multiply, divide and use exponents.
 
 add: +
+
 subtract: -
+
 multiply: *
+
 divide: /
+
 exponent: E
 
 The calculator will take higher precedence for exponents over multiplication and division, and higher precedence for multiplication and division over addition and subtraction.
