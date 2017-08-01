@@ -1,5 +1,4 @@
-/*Select a data entry format - infix, post-fix, pre-fix.*/
-
+/*rexx*/
 /*Grabbing argument from command line*/
 arg input
 i = input
@@ -16,6 +15,8 @@ DO WHILE length(input)>1
   input = n2
 END
 array.count = input
+
+evaluate()
 
 
 /*evaluate*/
@@ -66,15 +67,12 @@ arithmetic:
    else
    do i = 1 to 1
    SAY "Bad format! RULES:"
-   SAY 'All calculations are done in an infix manner.'
+  /* SAY 'All calculations are done in an infix manner.'
    SAY 'For example, "3 - 5" not "+ 2 3" nor "7 5 -".'
    SAY 'Enter in your arguments with a space in between.'
    SAY 'For example, "2 + 2" not "2+2"'
    SAY 'You are able to add(+), subtract(-), multiply(*), and divide(/)!'
-   SAY 'Only use numbers and operators(+,-,/,*)'
-   SAY 'You can use negative and fractional numbers'
-   SAY 'For example, "2 / -9" or "2 + .75"'
-   SAY 'Be aware, fractions are only in decimal format'
+   SAY 'Only use numbers and operators(+,-,/,*)'*/
       count = 0
    end
 return ""
